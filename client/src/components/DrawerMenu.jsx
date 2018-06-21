@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
 import {
     SwipeableDrawer,
-    Typography,
-    Divider,
     IconButton
 } from '@material-ui/core'
 import {
     Close as CloseIcon
 } from '@material-ui/icons'
-
+import NestedList from './NestedList'
 
 let width = window.innerWidth
-let height = window.innerHeight
 
 
 
@@ -60,7 +57,6 @@ export default class DrawerMenu extends Component {
         const styles = {
             root: {
                 width: this.state.screenwith,
-                marginTop: 10
             }
         }
         return (
@@ -78,21 +74,7 @@ export default class DrawerMenu extends Component {
                     >
                         <CloseIcon />
                     </IconButton>
-
-                    <Typography
-                        align='center'
-                        gutterBottom={true}
-                        variant='display1'
-                    >
-                        Free Quizz 24h
-               </Typography>
-                    <Typography
-                        align='center'
-                        variant='subheading'
-                    >
-                        v1.0
-               </Typography>
-                    <Divider />
+                    <NestedList/>
                 </div>
             </SwipeableDrawer>
         )

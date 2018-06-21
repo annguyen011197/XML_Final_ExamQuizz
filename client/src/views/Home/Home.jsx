@@ -5,13 +5,14 @@ import {
 } from '@material-ui/core'
 import Header from '../../components/Header'
 import DrawerMenu from '../../components/DrawerMenu'
+import HomeContent from '../../components/HomeContent'
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '#757ce8',
-      main: '#3f50b5',
-      dark: '#002884',
+      light: '#82f7ff',
+      main: '#40c4ff',
+      dark: '#0094cc',
       contrastText: '#fff',
     },
     secondary: {
@@ -36,10 +37,11 @@ export default class Home extends Component {
        theme={theme}
       >
           <Header
-            title="Home"
+            title="english4u"
             parent={this}
           />
           <DrawerMenu ref={'drawer'} />
+          <HomeContent />
       </MuiThemeProvider>
       </div>
     )

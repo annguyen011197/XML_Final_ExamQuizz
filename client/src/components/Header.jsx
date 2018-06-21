@@ -5,10 +5,16 @@ import {
     withStyles,
     Typography,
     Avatar,
-    IconButton
+    IconButton, Button
 } from '@material-ui/core'
 
 const styles = {
+    root: {
+        flexGrow: 1,
+      },
+      flex: {
+        flex: 1,
+      },
     logoBrand: {
         marginLeft: -12,
         marginRight: 20
@@ -25,7 +31,7 @@ class Header extends Component {
             <div>
                 <AppBar
                     position="sticky"
-                    color="secondary"
+                    color="primary"
                 >
                     <Toolbar>
                         <IconButton
@@ -35,16 +41,17 @@ class Header extends Component {
                             <Avatar
                                 alt="none"
                                 src="https://upload.wikimedia.org/wikipedia/commons/3/33/Vanamo_Logo.png"
-
                             />
                         </IconButton>
-
                         <Typography
-                            color="inherit"
                             variant="display1"
+                            color="inherit" 
+                            className={classes.flex}
                         >
                             {this.props.title}
-                </Typography>
+                        </Typography>
+                        <Button color="inherit">Login</Button>
+                        <Button color="inherit">Sign Up</Button>
                     </Toolbar>
                 </AppBar>
             </div>
