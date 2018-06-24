@@ -7,10 +7,12 @@ import {
     Avatar,
     IconButton, Button
 } from '@material-ui/core'
+import info from '../assets/jss/info'
 
 const styles = {
     root: {
         flexGrow: 1,
+        top:0
       },
       flex: {
         flex: 1,
@@ -22,6 +24,27 @@ const styles = {
 }
 
 class Header extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            info: {
+                name : 'null',
+                logo : './null.svg'
+            }
+        }
+    }
+    componentWillMount(){
+        fetch(`${info.serverURL}/thongtin`)
+        .then(res=>res.json())
+        .then(data=>{
+           this.setState({
+               info:{
+                   name : data.name,
+                   logo : `${info.mediaURL}/${data.logo}`
+               }
+           })
+        })
+    }
     onMenuClick(){
         this.props.parent.openMenu()
     }
@@ -30,8 +53,9 @@ class Header extends Component {
         return (
             <div>
                 <AppBar
-                    position="sticky"
+                    position="fixed"
                     color="primary"
+                    className={classes.root}
                 >
                     <Toolbar>
                         <IconButton
@@ -40,7 +64,7 @@ class Header extends Component {
                         >
                             <Avatar
                                 alt="none"
-                                src="https://upload.wikimedia.org/wikipedia/commons/3/33/Vanamo_Logo.png"
+                                src={this.state.info.logo}
                             />
                         </IconButton>
                         <Typography

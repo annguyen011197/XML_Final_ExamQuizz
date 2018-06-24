@@ -9,6 +9,7 @@ import ReactPlayer from 'react-player'
 const styles = {
     root: {
         flexGrow: 1,
+        paddingTop: 30
       },
       flex: {
         flex: 1,
@@ -31,7 +32,7 @@ class HomeContent extends Component {
     render() {
         const { classes } = this.props
         return (
-            <div>
+            <div className={classes.root}>
                <Typography
                 align = "center"
                 variant="display1"

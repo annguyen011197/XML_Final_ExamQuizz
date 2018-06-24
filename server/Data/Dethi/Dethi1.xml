@@ -1,0 +1,39 @@
+<DeThi ma_so="dethi1" ten="Exam 1" thoi_gian="15">
+    <DanhSach>
+        <CauHoi>
+            <NoiDung>Can you hear what he is .......</NoiDung>
+            <DapAn dung='1'>Saying</DapAn>
+            <DapAn dung='0'>Speaking</DapAn>
+            <DapAn dung='0'>Telling</DapAn>
+            <DapAn dung='0'>Talking</DapAn>
+        </CauHoi>
+        <CauHoi>
+            <NoiDung>She hasn't come home ........</NoiDung>
+            <DapAn dung='0'>Still</DapAn>
+            <DapAn dung='1'>Till</DapAn>
+            <DapAn dung='0'>Yet</DapAn>
+            <DapAn dung='0'>Already</DapAn>
+        </CauHoi>
+        <CauHoi>
+            <NoiDung>I ....... TV yesterday evening.</NoiDung>
+            <DapAn dung='0'>Viewed</DapAn>
+            <DapAn dung='0'>Watched</DapAn>
+            <DapAn dung='1'>Saw</DapAn>
+            <DapAn dung='0'>Looked</DapAn>
+        </CauHoi>
+        <CauHoi>
+            <NoiDung>She looks ....... a famous film star.</NoiDung>
+            <DapAn dung='1'>As</DapAn>
+            <DapAn dung='0'>Like</DapAn>
+            <DapAn dung='0'>Similar</DapAn>
+            <DapAn dung='0'>Same</DapAn>
+        </CauHoi>
+        <CauHoi>
+            <NoiDung>I want you to tell me the ....... truth.</NoiDung>
+            <DapAn dung='1'>Whole</DapAn>
+            <DapAn dung='0'>Exact</DapAn>
+            <DapAn dung='0'>Real</DapAn>
+            <DapAn dung='0'>All</DapAn>
+        </CauHoi>
+    </DanhSach>
+</DeThi>
