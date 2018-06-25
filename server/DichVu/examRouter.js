@@ -11,11 +11,11 @@ module.exports.router = (req,res)=>{
                 if(exam.constructor.name == 'Exam'){
                     res.writeHeader(200,{
                     'Access-Control-Allow-Origin': '*',
-                    'Conent-Type':'application/json'
+                    'Content-Type':'application/json'
                     })
                     let e = exam.toJSON()
                     map.set()
-                    res.end(JSON.stringify(exam.toJSON()))
+                    res.end(JSON.stringify(e))
                 }
             }).catch(err=>{
                 res.writeHeader(404)
