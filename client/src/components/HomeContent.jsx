@@ -24,7 +24,7 @@ const styles = {
     },
     video: {
         margin: "auto",
-        marginTop: 50
+        marginTop: 0
     }
 }
 
