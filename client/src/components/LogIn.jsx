@@ -1,47 +1,74 @@
 import React, {Component} from 'react';
-import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
-import Dialog, {
+import {
+  Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
-  withMobileDialog
-} from 'material-ui/Dialog';
+  Button,
+  TextField,
+  IconButton,
+} from '@material-ui/core'
+import {
+  Close as CloseIcon
+} from '@material-ui/icons'
 
-class Login extends Component {
+
+export default class Login extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      open: false,
+    };
+}
+open() {
+  this.setState({ open: true });
+};
+
+close() {
+  this.setState({ open: false });
+};
   render() {
+    const { fullScreen, classes } = this.props
     return (
+      <div>
       <Dialog 
-        open 
-        onRequestClose={this.props.toggleLogin}
-        fullScreen={this.props.fullScreen}>
-        <DialogTitle>Subscribe</DialogTitle>
+      fullScreen={fullScreen}
+      open= {this.state.open}
+      onClose={this.close.bind(this)}
+        >
+        <IconButton
+        onClick={this.close.bind(this)}
+        >
+            <CloseIcon />
+        </IconButton>
+        <DialogTitle align="center">Account {this.props.name}</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here. We will send
-            updates occationally.
-          </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
+            id="username"
+            label="Username"
+            type="text"
             fullWidth
           />
+          <TextField
+          margin="dense"
+          id="password"
+          label="Password"
+          type="password"
+          fullWidth
+        />
         </DialogContent>
-        <DialogActions>
-          <Button onClick={this.props.toggleLogin} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={this.props.toggleLogin} color="primary">
-            Subscribe
-          </Button>
+        <DialogActions>    
+          <Button
+          color="primary" 
+          onClick={this.close.bind(this)}
+          >
+          {this.props.name}
+          </Button>        
         </DialogActions>
       </Dialog>
+      </div>
     );
   }
 }
-
-export default withMobileDialog()(Login);

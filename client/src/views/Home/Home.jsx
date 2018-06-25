@@ -6,7 +6,7 @@ import {
 import Header from '../../components/Header'
 import DrawerMenu from '../../components/DrawerMenu'
 import HomeContent from '../../components/HomeContent'
-
+import LogIn from '../../components/LogIn'                 
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -28,6 +28,12 @@ export default class Home extends Component {
   openMenu() {
     this.refs.drawer.open()
   }
+  openLogIn() {
+    this.refs.login.open()
+  }
+  openSignUp() {
+    this.refs.signup.open()
+  }
   render() {
     return (
       <div
@@ -41,7 +47,10 @@ export default class Home extends Component {
             parent={this}
           />
           <DrawerMenu ref={'drawer'} />
+          <LogIn ref= {'login'} name="Sign In"/>
+          <LogIn ref= {'signup'} name="Sign Up"/>
           <HomeContent />
+          
       </MuiThemeProvider>
       </div>
     )
