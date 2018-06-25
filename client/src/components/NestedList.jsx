@@ -6,6 +6,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import {Link} from 'react-router-dom'
 import Collapse from '@material-ui/core/Collapse';
 import BookMarkIcon from '@material-ui/icons/Bookmark';
 import ExpandLess from '@material-ui/icons/ExpandLess';
@@ -22,6 +23,8 @@ const styles = theme => ({
     paddingLeft: theme.spacing.unit * 4,
   },
 });
+
+const ExamLink = props => <Link to="/Exam" {...props} />
 
 class NestedList extends React.Component {
   state = { 
@@ -45,14 +48,14 @@ class NestedList extends React.Component {
         <List
           component="nav"
         >
-        <ListItem button>
+        <ListItem button component={props => <Link to="/Home" {...props}/>}>
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
             <ListItemText inset primary="Home" />
           </ListItem>
         <ListSubheader component="div">English Exams</ListSubheader>
-          <ListItem button>
+          <ListItem button component={props => <Link to="/Exam" {...props} />}>
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>

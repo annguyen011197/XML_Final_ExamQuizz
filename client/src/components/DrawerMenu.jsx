@@ -50,7 +50,7 @@ export default class DrawerMenu extends Component {
     }
 
     componentWillUnMount() {
-        window.addEventListener("resize", this.updateDimension.bind(this));
+        window.removeEventListener("resize", this.updateDimension.bind(this));
     }
 
     render() {
