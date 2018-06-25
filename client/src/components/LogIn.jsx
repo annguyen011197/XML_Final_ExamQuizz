@@ -18,17 +18,23 @@ export default class Login extends Component {
     super(props)
     this.state = {
       open: false,
-    };
+      username: '',
+      password: '',
+    }
 }
 open() {
-  this.setState({ open: true });
+  this.setState({ open: true })
 };
 
 close() {
-  this.setState({ open: false });
-};
+  this.setState({ open: false })
+}
+onTest = () =>{
+  console.log(this.state.username)
+  console.log(this.state.password)
+}
   render() {
-    const { fullScreen, classes } = this.props
+    const { fullScreen } = this.props
     return (
       <div>
       <Dialog 
@@ -46,10 +52,12 @@ close() {
           <TextField
             autoFocus
             margin="dense"
-            id="username"
+            ref="username"
             label="Username"
             type="text"
             fullWidth
+            value={this.state.username}
+            onChange={e => this.setState({ username: e.target.value })}
           />
           <TextField
           margin="dense"
@@ -57,12 +65,14 @@ close() {
           label="Password"
           type="password"
           fullWidth
+          value={this.state.password}
+          onChange={e => this.setState({ password: e.target.value })}
         />
         </DialogContent>
         <DialogActions>    
           <Button
-          color="primary" 
-          onClick={this.close.bind(this)}
+          color="primary"
+          onClick = {this.onTest}
           >
           {this.props.name}
           </Button>        
