@@ -28,3 +28,26 @@ module.exports.getExam = (id)=>{
     })
     
 }
+
+module.exports.compareAnswer = (traloi,dapandung)=>{
+    let correct  = {}
+    let wrong = {}
+    for (const key in dapandung) {
+        if (dapandung.hasOwnProperty(key)) {
+            if(traloi[key]){
+                if(traloi[key]==dapandung[key]){
+                    correct[key] = traloi[key]
+                }else{
+                    wrong[key] = dapandung[key]
+                }
+            }else{
+                wrong[key] = dapandung[key]
+            }
+            
+        }
+    }
+    return {
+        correct: correct,
+        wrong : wrong
+    }
+}

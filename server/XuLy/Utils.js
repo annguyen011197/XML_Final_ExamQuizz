@@ -52,3 +52,11 @@ module.exports.encodeb64 = (str) => {
 module.exports.decodeb64 = (str) => {
     return Buffer.from(str,'base64').toString('ascii')
 }
+
+module.exports.objToStrMap = (obj) => {
+    let strMap = new Map();
+    for (let k of Object.keys(obj)) {
+        strMap.set(k, obj[k]);
+    }
+    return strMap;
+}

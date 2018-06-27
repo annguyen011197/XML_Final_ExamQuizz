@@ -5,8 +5,9 @@ var url = require('url')
 var handle = require('../XuLy/XuLyNghiepVu')
 var utils = require('../XuLy/Utils')
 var examRouter = require('./examRouter')
-var taode = require('./taode')
-var xemcauhoi = require('./xemcauhoi')
+var answerRouter = require('./answerRouter')
+// var taode = require('./taode')
+// var xemcauhoi = require('./xemcauhoi')
 const headers = {
     image:{
         'Conent-Type':'image/type'
@@ -56,6 +57,9 @@ http.createServer((req, res) => {
             case 'dethi':
                 examRouter.router(req,res)
                 break
+            case 'dapan':
+                answerRouter.router(req,res)
+            break
             default:
                 res.writeHead(302, {
                     'Location': clientURL
