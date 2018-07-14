@@ -5,10 +5,12 @@
   "dependencies": {
     "@material-ui/core": "^1.2.1",
     "@material-ui/icons": "^1.1.0",
+    "material-ui-image": "^3.0.0",
     "react": "^16.4.1",
     "react-animated-checkbox": "^0.1.4",
     "react-dom": "^16.4.1",
     "react-inline-grid": "^0.5.3",
+    "react-inlinesvg": "^0.8.1",
     "react-player": "^1.6.4",
     "react-redux": "^5.0.7",
     "react-responsive": "^4.1.0",

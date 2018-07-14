@@ -10,6 +10,13 @@
   "author": "abteam",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^2.0.1",
+    "client-sessions": "^0.8.0",
+    "install": "^0.12.1",
+    "jsonwebtoken": "^8.3.0",
+    "npm": "^6.1.0",
+    "querystring": "^0.2.0",
+    "route-matcher": "^0.1.0",
     "url": "^0.11.0",
     "webp-converter": "^2.1.6",
     "xml2js": "^0.4.19",

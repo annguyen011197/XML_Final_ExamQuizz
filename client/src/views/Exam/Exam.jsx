@@ -6,6 +6,8 @@ import {
 import Header from '../../components/Header'
 import DrawerMenu from '../../components/DrawerMenu'
 import ExamContent from '../../components/ExamContent'
+import LogIn from '../../components/LogIn' 
+import SignUp from '../../components/SignUp'     
 
 const theme = createMuiTheme({
   palette: {
@@ -20,7 +22,7 @@ const theme = createMuiTheme({
       main: '#1E1E1E',
       dark: '#1E1E1E',
       contrastText: '#FFFFFF',
-    },
+    }
   },
 });
 
@@ -42,34 +44,34 @@ export default class Exam extends Component {
 
   }
 
-  updateDimension(){
+  updateDimension() {
     let width = window.innerWidth
     let headerHeight = document.getElementById('header').clientHeight
     console.log(width)
-    if(width>768){
-      this.setState(prev=>({
-        style:{
-          content:{
+    if (width > 768) {
+      this.setState(prev => ({
+        style: {
+          content: {
             marginLeft: 100,
             marginRight: 100,
-            paddingTop: headerHeight+10
+            paddingTop: headerHeight + 10
           }
         }
       }))
-    }else{
-      this.setState(prev=>({
-        style:{
-          content:{
+    } else {
+      this.setState(prev => ({
+        style: {
+          content: {
             marginLeft: 0,
             marginRight: 0,
-            paddingTop: headerHeight+10
+            paddingTop: headerHeight + 10
           }
         }
       }))
     }
   }
 
-  componentWillMount(){
+  componentWillMount() {
     window.removeEventListener("resize", this.updateDimension.bind(this));
   }
   componentDidMount() {
@@ -78,6 +80,12 @@ export default class Exam extends Component {
   }
   openMenu() {
     this.refs.drawer.open()
+  }
+  openLogIn() {
+    this.refs.login.open()
+  }
+  openSignUp() {
+    this.refs.signup.open()
   }
   render() {
     return (
@@ -95,6 +103,8 @@ export default class Exam extends Component {
         <div
           style={this.state.style.content}
         >
+          <LogIn ref= {'login'} name="Sign In"/>
+          <SignUp ref= {'signup'} name="Sign Up"/>
           <ExamContent
 
             ref='content'

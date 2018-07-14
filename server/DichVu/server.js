@@ -5,31 +5,21 @@ var url = require('url')
 var handle = require('../XuLy/XuLyNghiepVu')
 var utils = require('../XuLy/Utils')
 var examRouter = require('./examRouter')
+var answerRouter = require('./answerRouter')
+var userRouter = require('./userRouter')
+var header = require('../XuLy/GlobalCache').Header
 
-const headers = {
-    image:{
-        'Conent-Type':'image/type'
-    },
-    text:{
-        'Conent-Type':'text/plain'
-    },
-    json:{
-        'Access-Control-Allow-Origin': '*',
-        'Conent-Type':'application/json'
-    }
-}
-
-http.createServer((req, res) => {
+http.createServer(async (req, res) => {
     let q = url.parse(req.url, true)
     let path = q.pathname.replace('/', '')
     let queryObj = q.query
     let start = process.hrtime()
+    let user = await handle.verifyJWT(req.headers.authorization)
+    req.user = user 
     if(path.startsWith('media')){
         handle.getMedia(path)
         .then(image=>{
-            let header = headers.image['Conent-Type']
-                        .replace('type',utils.getExtension(path))
-            res.writeHead(200,header)
+            res.writeHead(200,header.image)
             res.end(image,'binary')
         })
         .catch(err=>{
@@ -37,13 +27,13 @@ http.createServer((req, res) => {
             res.end(err+'')
         })
     }else{
-        path = path.toLowerCase()
+        path = utils.getRoute(path.toLowerCase())
         switch (path) {
             case 'thongtin':
                 if(req.method=='GET'){
                     handle.getInfo()
                     .then(data=>{
-                        res.writeHead(200,headers.json)
+                        res.writeHead(200,header.json)
                         res.end(JSON.stringify(data))
                     })
                     .catch(err=>{
@@ -55,6 +45,12 @@ http.createServer((req, res) => {
             case 'dethi':
                 examRouter.router(req,res)
                 break
+            case 'dapan':
+                answerRouter.router(req,res)
+            break
+            case 'user':
+                userRouter.router(req,res)
+            break
             default:
                 res.writeHead(302, {
                     'Location': clientURL

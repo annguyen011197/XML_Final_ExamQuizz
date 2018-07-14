@@ -10,8 +10,6 @@ import NestedList from './NestedList'
 
 let width = window.innerWidth
 
-
-
 export default class DrawerMenu extends Component {
     constructor(props) {
         super(props)

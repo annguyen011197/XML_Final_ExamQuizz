@@ -52,3 +52,27 @@ module.exports.encodeb64 = (str) => {
 module.exports.decodeb64 = (str) => {
     return Buffer.from(str,'base64').toString('ascii')
 }
+
+module.exports.objToStrMap = (obj) => {
+    let strMap = new Map();
+    for (let k of Object.keys(obj)) {
+        strMap.set(k, obj[k]);
+    }
+    return strMap;
+}
+
+module.exports.getRoute = (path) => {
+    if(path.indexOf('/') > -1){
+        return path.substring(0,path.indexOf('/'))
+    }else{
+       return path
+    }
+}
+
+module.exports.parseJSON = (str) =>{
+    try {
+        return JSON.parse(str)
+    } catch (error) {
+        return ''
+    }
+}

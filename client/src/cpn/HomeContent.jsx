@@ -28,14 +28,14 @@ class HomeContent extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <div >
-                <Grid container >
+            <div className={classes.root}>
+                <Grid container className={classes.root}>
                     <Button color="primary" className={classes.button}>
                         Learning Now
                     </Button>
                 </Grid>
 
-                <Grid container>
+                <Grid container className={classes.root}>
                     <ReactPlayer
                         className={classes.video}
                         url="https://www.nis.edu.vn/upload/files/video-nis.mp4"

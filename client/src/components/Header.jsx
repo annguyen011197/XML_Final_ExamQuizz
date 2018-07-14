@@ -48,6 +48,12 @@ class Header extends Component {
     onMenuClick() {
         this.props.parent.openMenu()
     }
+    onLogInClick() {
+        this.props.parent.openLogIn()
+    }
+    onSignUpClick() {
+        this.props.parent.openSignUp()
+    }
     render() {
         const { classes } = this.props
         return (
@@ -72,10 +78,10 @@ class Header extends Component {
                         color="inherit"
                         className={classes.flex}
                     >
-                        {this.state.info.name}
+                        {this.props.title}
                     </Typography>
-                    <Button color="inherit">Login</Button>
-                    <Button color="inherit">Sign Up</Button>
+                    <Button color="inherit" onClick={this.onLogInClick.bind(this)}>Sign In</Button>
+                    <Button color="inherit" onClick={this.onSignUpClick.bind(this)}>Sign Up</Button>
                 </Toolbar>
             </AppBar>
         )

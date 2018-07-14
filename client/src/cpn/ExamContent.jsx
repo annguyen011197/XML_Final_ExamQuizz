@@ -12,38 +12,6 @@ import info from '../assets/jss/info'
 import utils from '../assets/jss/utils'
 import Result from './Result'
 
-let questions = [{
-    question: {
-        value: "Can you hear what he is .......",
-        answers: {
-            A: "Saying",
-            B: "Speaking",
-            C: "Telling",
-            D: "Talking"
-        }
-    }
-}, {
-    question: {
-        value: "Can fuck  hear what he is .......",
-        answers: {
-            A: "Noen",
-            B: "A",
-            C: "SSSS",
-            D: "CCCC"
-        }
-    }
-}, {
-    question: {
-        value: "eqweqweqwwweqwe",
-        answers: {
-            A: "312312312",
-            B: "eqweqwe",
-            C: "SSSS",
-            D: "CCCC"
-        }
-    }
-}]
-
 export default class ExamContent extends Component {
     constructor(props) {
         super(props)
@@ -77,7 +45,6 @@ export default class ExamContent extends Component {
         let newMap = map
         let selected = map.get(newIndex)
         let answer = this.questionCpn.current.getAnswer()
-        console.log(answer)
         if (answer) {
             newMap.set(questionIndex, this.questionCpn.current.getAnswer())
             this.questionCpn.current.setAnswer(selected)
@@ -165,7 +132,7 @@ export default class ExamContent extends Component {
     renderQuestion() {
         const { questionIndex, questions } = this.state
         return (
-            <Paper
+            <div
                 style={this.props.style}
                 elevation={4}
             >
@@ -196,7 +163,7 @@ export default class ExamContent extends Component {
                     </Button>
                 </div>
 
-            </Paper>
+            </div>
         )
     }
     renderProgress() {
@@ -207,9 +174,8 @@ export default class ExamContent extends Component {
 
     renderResult() {
         return (
-            <Paper
+            <div
                 style={this.props.style}
-                elevation={4}
             >
                 {this.state.result.map((x,i)=> {
                     return (
@@ -221,7 +187,7 @@ export default class ExamContent extends Component {
                         </div>
                     )
                 })}
-            </Paper>
+            </div>
         )
     }
     render() {

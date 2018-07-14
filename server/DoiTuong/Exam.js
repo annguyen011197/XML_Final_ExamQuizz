@@ -48,21 +48,20 @@ module.exports =  class Exam{
         info.time =  utils.isNumber(this.time) ? parseInt(this.time) : 0
         res.info = info
         let questions = []
-        let answers = []
+        let answers = {}
         let temp = utils.shuffle(this.content)
         temp.forEach((e,i)=>{
             let w = e.toJSON()
             let q = {}
-            let a = {}
-            a.index = i
-            a.text = w.result
+            let a 
+            a = w.result
             q.index = i
             q.question = {
                 value: w.question,
                 answers: w.answers
             }
             questions.push(q)
-            answers.push(a)
+            answers[`${i}`] = a
             i++
         })
         res.questions = questions
